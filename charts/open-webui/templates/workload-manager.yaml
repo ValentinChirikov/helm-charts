@@ -165,6 +165,11 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: {{ .Values.persistence.existingClaim }}
+      {{- else if and not .Values.persistence.enabled .Values.persistence.host }}
+      - name: data
+        hostPath:
+          path: {{ .Values.persistence.hostPath }}
+          type: Directory
       {{- else if not .Values.persistence.enabled }}
       - name: data
         emptyDir: {}
