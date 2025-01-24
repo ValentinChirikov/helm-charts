@@ -166,6 +166,9 @@ ingress:
   existingSecret: ""
 persistence:
   enabled: true
+  # -- If using hostPath
+  host: false
+  hostPath: ""
   size: 2Gi
   # -- Use existingClaim if you want to re-use an existing Open WebUI PVC instead of creating a new one
   existingClaim: ""
